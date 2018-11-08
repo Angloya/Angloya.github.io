@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+<script>
+  function openImageWindow(src) {
+    var image = new Image();
+    image.src = src;
+    var width = image.width;
+    var height = image.height;
+    window.open(src,"Image","width=" + width + ",height=" + height);
+  }
+    
+</script>
+<script>
+//дожидаемся полной загрузки страницы
+window.onload = function () {
+
+    //получаем идентификатор элемента
+    var a = document.getElementById('pull');
+    
+    //вешаем на него событие
+    a.onclick = function() {
+        //производим какие-то действия
+        if (this.innerHTML=='Скрыть') this.innerHTML = 'Menu';
+        else this.innerHTML = 'Скрыть';
+        //предотвращаем переход по ссылке href
+        return false;
+    }
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/common.js"></script>
+ <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8" />
+ <link rel="stylesheet" href="main.css" type="text/css">
+ <link href="media.css" rel="stylesheet" type="text/css">
+<title>Все любят мопсов</title>
+ 
+</head>
+<body>
+ <section class="fon">
+<!-- Начало header -->
+<header class="header">
+	<div class="flex">
+	<div id="logo">
+		<div class="logo">
+			 <p>SERVISE TITLE   </p>
+<div>
+			 <p>все для вас!  </p>
+			 
+			</div>
+		</div>
+	  </div>
+<div id="menu">
+ <ul class="menu-main">
+<li><a href="" title="" class="active" >Home</a></li>
+<li><a href="" title="">Style demo</a></li>
+<li><a href=""  title="">Drop down</a></li>
+<li><a href=""  title="">Full width</a></li>
+<li><a href=""  title="">Portfolio</a></li>
+<li><a href=""  title="">Gallery</a></li>
+</ul>
+        </div>
+        </div>
+		<nav class="container">
+		<a href="#" id="pull">Menu</a>
+ <ul>
+<li><a href="#" title="">Home</a></li>
+<li><a href="#" title="">Style demo</a></li>
+<li><a href="#"  title="">Drop down</a></li>
+<li><a href="#"  title="">Full width</a></li>
+<li><a href="#"  title="">Portfolio</a></li>
+<li><a href="#"  title="">Gallery</a></li>
+</ul>
+</nav>
+
+
+	<div class="carousel" id="carousel">
+		<button class="arrow prev"> 
+			<img src="images/left2.png" alt="left">
+		</button>
+		<div class="gallery">
+      <ul class="images">
+      	<li>
+	<div class="dopinfotext">
+<h3>Lorem ipsum dolor sit. </h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nemo dolorum illo dignissimos optio cupiditate, tempore dolorem enim quis officiis saepe quidem eaque voluptatum est voluptas, sapiente cumque facere debitis suscipit deleniti voluptates cum quaerat itaque deserunt. Quod dolorem, illo odit atque!</p>
+<div class ="button">
+<a href=""  title="button">Read more</a>
+</div>
+	</div>
+	<div class="dopinfoimg">
+		<img src="images/dopinfoimg9.jpg" alt="dopinfoimg" class="round">
+	</div>
+</li>
+	<li>
+	<div class="dopinfotext">
+<h3>Lorem ipsum dolor sit amet. </h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nulla optio natus exercitationem quisquam eligendi recusandae doloribus nihil, iusto quas ex, culpa ad, quod, voluptatem animi saepe architecto! Sunt nihil sapiente magni, molestias magnam esse ipsum ex pariatur, quibusdam quasi qui aliquam? Voluptates inventore incidunt vel non, quidem cumque possimus vitae adipisci, aliquid ab placeat!</p>
+<div class ="button">
+<a href=""  title="button">Read more</a>
+</div>
+	</div>
+	<div class="dopinfoimg">
+		<img src="images/dopinfoimg4.jpg" alt="dopinfoimg" class="round">
+	</div>
+</li>
+	<li>
+	<div class="dopinfotext">
+<h3>Lorem ipsum dolor sit. </h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam facilis inventore ullam qui, beatae deleniti delectus aperiam! Dignissimos odit, illo nulla necessitatibus deleniti officiis, ab qui ducimus vitae suscipit? Consequatur rerum suscipit, eveniet explicabo illo cum rem eligendi eaque doloribus tempore ullam provident molestias a id odio. Quod ex voluptates dolores perferendis ratione a fuga aliquid inventore molestiae aut, tenetur labore autem blanditiis laudantium obcaecati omnis.</p>
+<div class ="button">
+<a href=""  title="button">Read more</a>
+</div>
+	</div>
+	<div class="dopinfoimg">
+		<img src="images/dopinfoimg3.jpg" alt="dopinfoimg" class="round">
+	</div>
+</li>
+	<li>
+	<div class="dopinfotext">
+<h3>Lorem ipsum dolor sit amet. </h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate minima voluptatum laudantium, qui ipsam, harum optio obcaecati rerum consectetur nisi, magni enim repellat quidem repudiandae distinctio nobis. Hic reprehenderit laboriosam natus dolorum perspiciatis soluta quam rerum error autem provident, unde earum praesentium, veritatis harum!</p>
+<div class ="button">
+<a href=""  title="button">Read more</a>
+</div>
+	</div>
+	<div class="dopinfoimg">
+		<img src="images/dopinfoimg1.jpg"  alt="dopinfoimg" class="round">
+	</div>
+</li>
+</ul>
+</div>
+	<button class="arrow next">
+<img src="images/right2.png" alt="right">
+	</button>
+</div>
+<script>
+    var width = 900; // ширина изображения
+    var carousel = document.getElementById('carousel');
+    var list = carousel.querySelector('ul');
+    var listElems = carousel.querySelectorAll('li');
+
+    var position = 0; 
+
+    carousel.querySelector('.prev').onclick = function() {
+      // сдвиг влево
+      
+      position = Math.min(position + width, 0)
+      list.style.marginLeft = position + 'px';
+    };
+
+    carousel.querySelector('.next').onclick = function() {
+      // сдвиг вправо
+      
+      position = Math.max(position - width , - width * listElems.length);
+      list.style.marginLeft = position + 'px';
+    };
+  </script>
+</header>
+<!-- Конец header -->
+ 
+<!-- начало wrapper -->
+ 
+<section id="wrapper" class="wrapper">
+<div class="wrapper" id="middle">
+<div class="block">
+	<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BF%D1%81" title="" class="servise" >
+	<img src="images/title1.png" alt="dopinfoimg">
+	<div class="blocks"> 
+		<h3> SERVISE TITLE</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ipsum.</p>
+		</div>
+	</a>
+</div>
+<div class="block">
+	<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BF%D1%81" title="" class="servise" >
+	<img src="images/title2.png" alt="dopinfoimg">
+	<div class="blocks">  
+		<h3> SERVISE TITLE</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, voluptate!</p>
+		</div>
+	</a>
+</div>
+<div class="block">
+	<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BF%D1%81" title="" class="servise" >
+	<img src="images/title3.png" alt="dopinfoimg">
+	<div class="blocks"> 
+		<h3> SERVISE TITLE</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, accusantium.</p>
+		</div>
+	</a>
+</div>
+<div class="block">
+	<a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BF%D1%81" title="" class="servise" >
+	<img src="images/title4.png" alt="dopinfoimg">
+	<div class="blocks"> 
+		<h3> SERVISE TITLE</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, tenetur.</p>
+		</div>
+	</a>
+</div>
+	</div>
+	<!-- Конец middle -->
+	<div class="wrapper" id="contentitle">
+		<hr>
+		<span class="work">
+			LATEST WORK
+		</span>
+</div>
+<!-- Начало content -->
+<div class="wrapper" id="content">
+<div class="photo">
+	<img src="images/dopinfoimg1.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+<h2> Надпись</h2>
+</div>
+<div class="photo">
+	<img src="images/dopinfoimg2.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+	<h2> Надпись</h2>
+</div>
+<div class="photo">
+	<img src="images/dopinfoimg3.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+	<h2> Надпись</h2>
+</div>
+<div class="photo">
+	<img src="images/dopinfoimg0.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+	<h2> Надпись</h2>
+</div>
+<div class="photo">
+	<img src="images/dopinfoimg5.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+	<h2> Надпись</h2>
+</div>
+<div class="photo">
+	<img src="images/dopinfoimg6.jpg" alt="dopinfoimg" onclick = "openImageWindow(this.src);">
+	<h2> Надпись</h2>
+</div>
+ 
+</div><!-- Конец content -->
+
+</section><!-- Конец wrapper -->
+ </section>
+<!-- Начало footer -->
+ 
+<footer id="footer">
+	<div id="footerInner">
+<div class="footer" id="footerInner1">
+  <h3>From The Blog </h3>
+ 	<h2>Lorem ipsum. </h2>
+ 	<p> <em> Lorem ipsum. </em> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa rem, reiciendis. Doloremque dolorum cupiditate autem earum dolores temporibus vitae qui sed, excepturi. Vel ipsam velit, praesentium est libero aut dolorem! </p>
+ 	<a href=""  title="button">Read more >></a>
+</div>
+<div class="footer" id="footerInner2">
+ <h3>Quick links </h3>
+<div id="link">
+ <ul>
+ 	<li><a href=""  title="link">Lorem ipsum dolor.</a></li>
+ 	<li><a href=""  title="link"> Lorem ipsum dolor.</a></li>
+ 	<li><a href=""  title="link">Lorem ipsum dolor.</a></li>
+ 	<li><a href=""  title="link">Lorem ipsum dolor.</a></li>
+ 	<li><a href=""  title="link">Lorem ipsum dolor.</a></li>
+ 	<li><a href=""  title="link">Lorem ipsum dolor.</a></li>
+ </ul>
+</div>
+</div>
+<div class="footer" id="footerInner3">
+ <h3>Latest Tweets </h3>
+ 	<p> <em> @From </em> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe adipisci qui nam laborum nulla animi illum, voluptatem minima sint sapiente veniam ex perspiciatis quae possimus soluta nostrum a magni vero. </p>
+ 	<br>
+ 	<p> <em> @From </em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil neque laborum laudantium. </p>
+</div>
+<div class="footer" id="footerInner4">
+ <h3>Contact US</h3>
+ <form action="handler.php" method="post" name="comment" id="comment">
+<input class="message" type="text" name="Name" placeholder="Full Name" id="Name" value="" size="20" required/>
+
+<input class="message" type="text" name="email" placeholder="Mail" id="email" value="" size="20" required/>
+
+<input class="message" type="text" placeholder="Subject" name="Subject" id="Subject" value="" size="20" />
+
+<textarea class="message" id="message" name="message" placeholder="Message" rows="7" cols="22" required></textarea>
+
+<input class="message" name="submit" type="submit" id="submit" value="Отправить" />
+</form>
+</div>
+</div>
+<div class="Copyright"> 
+	<div><span> Copyright © Знак охраны авторского права</span></div>
+	<div><span>И. И. Иванов, 2000</span></div>
+	</div>
+        </footer>
+</body>
+</html>

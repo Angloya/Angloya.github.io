@@ -1,0 +1,11 @@
+.main { 
+    display: flex;
+    flex-wrap: wrap;
+     width: 100%;
+}
+
+
+.main img {
+    height: 311px;
+    width: 400px;
+}

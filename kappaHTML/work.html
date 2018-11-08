@@ -1,0 +1,205 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/work.css" type="text/css">
+    <title>Kappa</title>
+</head>
+
+<body>
+<<<<<<< HEAD
+    <div class="holder">
+        <h1 class="top">Список задач</h1>
+        <div class="AddInfo">
+            <input-task @addTask="addTask" />
+            <input-column @addColumn="addColumn" />
+        </div>
+        <div>
+            <Container :orientation=v iew class="container-main" @drop="onDropMain" :get-child-payload="getChildPayload2">
+                <Draggable class="column" v-for="(col, index) in main" :key="col.id" :class="col.class" v-rainbow>
+                    <div class="columnTitle">
+                        <img src="../../assets/remove.png" alt="" class="removeAll cursor" v-on:click="removeColumn(col.name, index)">
+                        <h1>{{col.name}}</h1>
+                    </div>
+                    <Container class="container" :group-name="'item'" :get-child-payload="getChildPayload(col.id)" @drop="onDrop(index, 'items', $event)">
+                        <Draggable :class="{modalMask: item.showModal,'draggable-item': !item.showModal}" v-border v-rainbow v-for="(item, index) in col.items" :key="index" v-if="col.items.length">
+                            <transition name="modal">
+                                <div class="draggableGrid" :class="item.class" @dblclick="showModalOpen(col.id, index)">
+                                    <h2 title="Кликните два раза по названию чтобы отредактировать его" @dblclick="changeTask(col.id, index, 'title')">
+                                        {{item.title}}</h2>
+                                    <p title="Кликните два раза по содержанию чтобы отредактировать его" @dblclick="changeTask(col.id, index, 'data')">
+                                        {{item.data}}</p>
+                                    <transition name="fade">
+                                        <div class="change" v-if='item.changeTitle || item.changeTask'>
+                                            <form>
+                                                <input type="text" class="addTask" v-if='item.changeTitle' required v-model="title" maxlength="40" minlength="3" v-focus @blur="onBlur(col.id, index, 'title')">
+                                                <textarea type="text" class="addTask" v-if='item.changeTask' required v-model="task" maxlength="1000" minlength="3" v-focus @blur="onBlur(col.id, index, 'data')" />
+                                                <h3 class="cursor" @click="changeData(col.id, index, 'data')">Сохранить</h3>
+                                            </form>
+                                        </div>
+                                    </transition>
+                                    <div class="imgChange">
+                                        <img src="../../assets/remove.png" alt="" v-if="!item.showModal" class="removeAll cursor" v-on:click="remove(col.id, index)">
+                                        <img src="../../assets/edit.png" alt="" @click="changeTask(col.id, index, 'data')" class="removeAll cursor">
+                                        <img src="../../assets/remove.png" alt="" @click="showModalClose(col.id, index)" v-if="item.showModal" class="removeAll cursor">
+                                    </div>
+                                </div>
+                            </transition>
+                        </Draggable>
+                    </Container>
+                </Draggable>
+            </Container>
+=======
+    <section class="widget" id="widget">
+        <div class="sidebar">
+            <div class="widget-title">
+                <h2>kappe</h2>
+                <div>
+                    <img src="images/for_creatives.png" alt="">
+                </div>
+            </div>
+            <div id="menu">
+                <ul class="widget-list">
+                    <a href="home.html">
+                        <li> Home</li>
+                    </a>
+                    <a href="work.html">
+                        <li class="active">Work</li>
+                    </a>
+                    <a href="#">
+                        <li>About</li>
+                    </a>
+                    <a href="#">
+                        <li>Blog</li>
+                    </a>
+                    <a href="#">
+                        <li>Services</li>
+                    </a>
+                    <a href="contacts.html">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="widget-filter">
+                <h3>
+                    Filter <img src="images/filter.png" alt="">
+                </h3>
+                <ul class="filter">
+                    <li> <a href="#">All Works</a></li>
+                    <li><a href="#">web design</a></li>
+                    <li><a href="#">illustration</a></li>
+                    <li><a href="#">photography</a></li>
+                    <li><a href="#">wallpapers</a></li>
+                    <li><a href="#">brochures</a></li>
+                </ul>
+            </div>
+            <div class="widget-bottom">
+                <a href="#"><img src="images/webicon-behance.png" alt=""></a>
+                <a href="#"><img src="images/webicon-dribbble.png" alt=""></a>
+                <a href="#"><img src="images/webicon-facebook.png" alt=""></a>
+                <a href="#"><img src="images/webicon-flickr.png" alt=""></a>
+                <a href="#"><img src="images/webicon-googleplus.png" alt=""></a>
+                <a href="#"><img src="images/webicon-pinterest.png" alt=""></a>
+                <a href="#"><img src="images/webicon-twitter.png" alt=""></a>
+            </div>
+            <div class="widget-copyright">
+                <p>© 2014 Kappe, All Rights Reserved</p>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+
+        <div class="left">
+            <div class="leftPhoto">
+                <img src="images/Layer_72.png" alt="">
+            </div>
+            <div class="leftText">
+                <h2>
+                    Heavy Sand - Creative Photography
+                </h2>
+                <p>
+                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. </p>
+                <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.
+                </p>
+            </div>
+            <div class="leftPlus">
+                <h2>
+                    Related Projects
+                </h2>
+                <div class="leftPlusPhoto">
+                    <img src="images/Layer_85.png" alt="">
+                    <img src="images/Layer_85.png" alt="">
+                    <img src="images/Layer_85.png" alt="">
+                    <img src="images/Layer_86.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="projects" class="right">
+                <h2> Related Projects</h2>
+                <div >
+                <div class="projects">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                <img src="images/Layer_85.png" alt="" v-on:click="showDetail =! showDetail">
+                    </div>
+                <div v-show="showDetail">
+                    <h2>{{ title }}</h2>
+                    <div class="inform">
+                        <ul>
+                            <li>
+                                <img src="images/work.1.png" alt=""> {{login}}
+                            </li>
+                            <li>
+                                <img src="images/work.2.png" alt=""> {{likes}}
+                            </li>
+                            <li>
+                                <img src="images/work.3.png" alt=""> {{date}}
+                            </li>
+                            <li>
+                                <img src="images/work4.png" alt=""> {{comments}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <h2>{{title2}}</h2>
+                        <ul>
+                            <li v-for="filter in filters">
+                                {{filter.tag}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gallery">
+                        <h2>
+                            {{title3}}
+                        </h2>
+                        <ul>
+                            <li v-for="image in images">
+                                <img :src="image.elem"></li>
+                        </ul>
+                    </div>
+                    <div class="features">
+                        <h2>
+                            {{title4}}
+                        </h2>
+                        <ul>
+                            <li v-for="item in items">
+                                <img src="images/oke.png" alt=""> {{item.info}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+>>>>>>> 7a662b4a30560b44bec5dfe5f73c7373cf6f5542
+        </div>
+    </div>
+</body>
+
+</html>
